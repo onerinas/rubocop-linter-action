@@ -75,7 +75,7 @@ module Github
     def base_payload(status)
       {
         name: check_name,
-        head_sha: github_data.payload.pull_request ? github_data.payload.pull_request.head.sha : github_data.sha,
+        head_sha: github_data.pull_request_sha || github_data.sha,
         status: status
       }
     end
