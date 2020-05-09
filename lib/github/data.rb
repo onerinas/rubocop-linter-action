@@ -19,6 +19,10 @@ module Github
     def owner
       ENV["GITHUB_REPOSITORY_OWNER"] || event.dig("repository", "owner", "login")
     end
+    
+    def pull_request_sha
+      event.dig("pull_request_sha", "sha")
+    end   
 
     def repo
       ENV["GITHUB_REPOSITORY_NAME"] || event.dig("repository", "name")
